@@ -10,7 +10,7 @@ import SwiftUI
 struct EmojiTheme {
     let name:String
     let imageName:String
-    let emojis:[String]
+    let emojis:[Character]
 }
 
 let emojiThemes=[
@@ -37,22 +37,11 @@ struct ThemeButton: View{
 
 struct ContentView: View {
     
-    @State var emojis:[String] = emojiThemes[0].emojis
-    @State var emojiCount = 5
+    @State var emojis:[Character] = emojiThemes[0].emojis
+    @State var emojiCount = emojiThemes[0].emojis.count
     var body: some View {
         VStack {
             Text("Memorize!").font(.largeTitle)
-            HStack{
-                ForEach(emojiThemes.sorted(by: {$0.name<$1.name}), id: \.self.name) { theme in
-                    ThemeButton(theme: theme, onTap: {
-                        emojiCount = 5
-                        emojis = theme.emojis
-                        emojis.insert("0", at: 0)
-                        emojis.removeFirst()
-                    })
-                    .aspectRatio(1, contentMode: .fit)
-                }
-            }
             ScrollView{
                 LazyVGrid(columns: [GridItem(.adaptive (minimum: 65))]) {
                     ForEach(emojis.shuffled()[0..<emojiCount], id: \.self) { emoji in
@@ -62,46 +51,28 @@ struct ContentView: View {
                 }
             }
             .foregroundColor(.red)
-            
             Spacer()
-
             HStack{
-                remove
-                Spacer()
-                add
+                ForEach(emojiThemes.sorted(by: {$0.name<$1.name}), id: \.self.name) { theme in
+                    ThemeButton(theme: theme, onTap: {
+                        emojiCount = theme.emojis.count
+                        emojis = theme.emojis
+                        emojis.insert("0", at: 0)
+                        emojis.removeFirst()
+                    })
+                    .aspectRatio(1, contentMode: .fit)
+                }
             }
-            .font(.largeTitle)
-            .padding(.horizontal)
+
         }
         .padding(.horizontal)
-    }
-    
-    var remove: some View{
-        Button{
-            if(emojiCount>1){
-                    emojiCount -= 1
-            }
-        } label: {
-            Image (systemName: "minus.circle")
-        }
-        
-        
-    }
-    var add: some View{
-        Button{
-            if(emojiCount<emojis.count){
-                emojiCount += 1
-            }
-        } label: {
-            Image(systemName: "plus.circle")
-        }
     }
    
         
 }
 
 struct CardView: View {
-    var content: String
+    var content: Character
     @State var isFaceUp: Bool = true
     var body: some View{
         ZStack{
@@ -109,7 +80,7 @@ struct CardView: View {
             if isFaceUp{
                 shape.fill().foregroundColor(.white)
                 shape.strokeBorder(lineWidth: 3)
-                Text(content).font(.largeTitle)
+                Text(String(content)).font(.largeTitle)
             } else {
                 shape.fill()
             }
