@@ -11,7 +11,8 @@ import SwiftUI
 struct CardgameApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let game=EmojiMemoryGame()
+            EmojiMemoryGameView(game: game)
         }
     }
 }
