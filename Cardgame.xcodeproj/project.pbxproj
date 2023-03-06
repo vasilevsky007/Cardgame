@@ -16,6 +16,7 @@
 		FAA18D0429A692C2002AD0C8 /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA18D0329A692C2002AD0C8 /* EmojiMemoryGame.swift */; };
 		FAA919D629B21084004B3C71 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA919D529B21084004B3C71 /* AspectVGrid.swift */; };
 		FAA919D829B227B8004B3C71 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA919D729B227B8004B3C71 /* Pie.swift */; };
+		FAA919DA29B5F5AD004B3C71 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA919D929B5F5AD004B3C71 /* Cardify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		FAA18D0329A692C2002AD0C8 /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		FAA919D529B21084004B3C71 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		FAA919D729B227B8004B3C71 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
+		FAA919D929B5F5AD004B3C71 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				FAA919D529B21084004B3C71 /* AspectVGrid.swift */,
 				FA210D9C29A619900072DEBA /* EmojiMemoryGameView.swift */,
 				FAA919D729B227B8004B3C71 /* Pie.swift */,
+				FAA919D929B5F5AD004B3C71 /* Cardify.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			files = (
 				FA04B93B29A6A90A00BDC8E3 /* EmojiTheme.swift in Sources */,
 				FAA18D0229A68F64002AD0C8 /* MemoryGame.swift in Sources */,
+				FAA919DA29B5F5AD004B3C71 /* Cardify.swift in Sources */,
 				FAA919D629B21084004B3C71 /* AspectVGrid.swift in Sources */,
 				FA210D9D29A619900072DEBA /* EmojiMemoryGameView.swift in Sources */,
 				FAA919D829B227B8004B3C71 /* Pie.swift in Sources */,
