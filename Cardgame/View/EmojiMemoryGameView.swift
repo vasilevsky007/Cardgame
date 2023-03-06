@@ -62,20 +62,17 @@ struct CardView: View {
                 Pie(startAngle: Angle(degrees: 0-90), endAngle: Angle(degrees: 110-90)).padding(DrawingConstants.timerPadding).opacity(DrawingConstants.timerOpacity)
                 Text(String(card.content))
                     .rotationEffect(Angle(degrees: card.isMatched ? 360 : 0))
-                    .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
-                    .font(.system(size: DrawingConstants.fontSize))
-                    .scaleEffect(scale(thatFits: geometry.size))
+                    .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false), value: card.isMatched)
+                    .font(generateSystemFontToFit(geometry))
             }
             .cardify(isFaceUp: card.isFaceUp, isMatched: card.isMatched)
         }
     }
 }
 
-private func scale(thatFits size: CGSize) -> CGFloat {
-    min(size.width, size.height) / (DrawingConstants.fontSize / DrawingConstants.fontScale)
+private func generateSystemFontToFit(_ geometry: GeometryProxy) ->Font {
+    Font.system(size: min(geometry.size.height, geometry.size.width) * DrawingConstants.fontScale)
 }
-
-
 
 private struct DrawingConstants {
     static let borderWidth: CGFloat = 3
@@ -84,7 +81,6 @@ private struct DrawingConstants {
     static let cardAspectRatio: CGFloat = 2/3
     static let cardCornerRadius: CGFloat = 12
     static let fontScale: CGFloat = 0.7
-    static let fontSize: CGFloat = 32
     static let timerOpacity: CGFloat = 0.5
     static let buttonCornerRadius: CGFloat = 10
 }
